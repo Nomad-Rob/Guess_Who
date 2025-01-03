@@ -10,3 +10,67 @@ p {
   display: flex;
   justify-content: center;
 }
+
+#playContainer {
+  position: relative;
+  width: 100%;
+  height: 700px; /* Container is 700px tall */
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Position text at the top */
+#position {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+/* The image, placed at top: 6rem */
+#img {
+  position: absolute;
+  top: 6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  max-height: 400px; /* We'll assume the image is up to 400px high */
+}
+
+/* 
+  Phrase is 5px below the bottom edge of the image:
+  6rem (where the image starts) + 400px (image height) + 5px gap
+*/
+#phrase {
+  position: absolute;
+  top: calc(6rem + 400px + 5px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-style: italic;
+  margin: 0;
+  font-size: 1.2rem;
+  width: 80%;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 576px) {
+  #playContainer {
+    height: 400px; 
+  }
+  #position {
+    top: 1rem;
+    font-size: 1.1rem;
+  }
+  #img {
+    top: 4rem;
+    max-height: 240px;
+  }
+  #phrase {
+    /* Now we must also adjust the phrase top accordingly. 
+       If the image is 240px, do: top: calc(4rem + 240px + 5px); */
+    top: calc(4rem + 240px + 5px);
+    font-size: 1rem;
+  }
+}
